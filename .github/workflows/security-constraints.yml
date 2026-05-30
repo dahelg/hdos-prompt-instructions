@@ -26,7 +26,7 @@ jobs:
           found=0
           while IFS= read -r f; do
             found=1
-            if grep -qE '^##[[:space:]]+Security Constraints[[:space:]]*$' "$f"; then
+            if grep -qE '^##[[:space:]]+Security Constraints[[:space:]]*$' -- "$f"; then
               echo "ok: $f"
             else
               echo "MISSING '## Security Constraints': $f"
