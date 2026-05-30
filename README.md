@@ -65,8 +65,8 @@ hdos-prompt-instructions/
 │   ├── claude/             # Claude-specific commands (use Claude tools)
 │   │   ├── chat-index.md
 │   │   └── get-prompt.md
-│   ├── chatgpt/            # ChatGPT-specific overrides
-│   └── gemini/             # Gemini-specific overrides
+│   ├── chatgpt/            # ChatGPT-specific overrides (planned — not yet created)
+│   └── gemini/             # Gemini-specific overrides (planned — not yet created)
 ├── loaders/
 │   ├── claude-preferences.md     # Minimal loader for Claude User Preferences
 │   ├── claude-project.md         # Loader for Claude Project Instructions

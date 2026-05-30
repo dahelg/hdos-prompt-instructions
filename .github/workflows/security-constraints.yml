@@ -1,0 +1,50 @@
+name: Security Constraints Check
+
+# Enforces the repo invariant (CLAUDE.md, docs/ARCHITECTURE.md): every command
+# file under commands/ MUST contain a "## Security Constraints" section. PRs that
+# add a command without it are non-compliant.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'commands/**'
+
+permissions:
+  contents: read
+
+jobs:
+  security-constraints:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify every command file has a Security Constraints section
+        run: |
+          set -euo pipefail
+          fail=0
+          found=0
+          while IFS= read -r f; do
+            found=1
+            if grep -qE '^##[[:space:]]+Security Constraints[[:space:]]*$' -- "$f"; then
+              echo "ok: $f"
+            else
+              echo "MISSING '## Security Constraints': $f"
+              fail=1
+            fi
+          done < <(find commands -type f -name '*.md' | sort)
+
+          if [ "$found" -eq 0 ]; then
+            echo "No command files found under commands/ — nothing to check."
+            exit 0
+          fi
+
+          if [ "$fail" -ne 0 ]; then
+            echo ""
+            echo "Every command file must include a '## Security Constraints' section."
+            echo "See CLAUDE.md and docs/ARCHITECTURE.md."
+            exit 1
+          fi
+
+          echo ""
+          echo "All command files include the mandatory Security Constraints section."

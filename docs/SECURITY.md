@@ -62,7 +62,7 @@ This repository uses a **fetch-and-execute pattern**: an AI chatbot reads instru
 
 **Mitigations:**
 - Pre-commit review checklist (see below)
-- `.gitignore` blocks common secret file patterns
+- `.gitignore` blocks common secret file patterns: `.env` and `.env.*` (with `!.env.example` un-ignored so the template stays tracked), `*.key`, `*.pem`, `*.p12`, `*.pfx`, `*secret*`, `*credential*`, plus the SSH key filenames `id_rsa` and `id_ed25519`
 - CLAUDE.md explicitly prohibits personal data in command files
 - All examples use placeholder data only
 
