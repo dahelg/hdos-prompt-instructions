@@ -1,1 +1,17 @@
+# Local AI tool settings
 .claude/settings.local.json
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Secrets and credentials
+*.key
+*.pem
+*.p12
+*.pfx
+*secret*
+*credential*
+id_rsa
+id_ed25519
