@@ -10,8 +10,8 @@ A public repository of reusable, version-controlled prompt commands for AI chatb
 commands/
 ├── universal/      # Platform-agnostic commands (fallback)
 ├── claude/         # Claude-specific (uses Claude tools like recent_chats, web_fetch)
-├── chatgpt/        # ChatGPT-specific overrides
-└── gemini/         # Gemini-specific overrides
+├── chatgpt/        # ChatGPT-specific overrides (planned — not yet created)
+└── gemini/         # Gemini-specific overrides (planned — not yet created)
 
 loaders/            # Minimal text snippets users paste into their chatbot settings
 docs/               # Security model, contributing guide, architecture
